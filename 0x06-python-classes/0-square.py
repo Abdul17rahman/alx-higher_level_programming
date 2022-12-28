@@ -1,5 +1,5 @@
 #!/usr/bin/python
 """Defines a square """
-class Square():
+class Square:
     """Does nothing"""
     pass
