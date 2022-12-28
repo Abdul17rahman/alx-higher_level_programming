@@ -1,5 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+#0-square.y created by Abdul
+
 """Defines a square """
-class Square:
+
+class Square():
     """Does nothing"""
     pass
