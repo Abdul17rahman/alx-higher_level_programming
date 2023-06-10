@@ -8,9 +8,9 @@ def print_reversed_list_integer(my_list=[]):
     Returns:
         Nothing
     """
-    if my_list == None:
+    if my_list is None:
         pass
     else:
-        my_list.sort(reverse = True)
+        my_list.sort(reverse=True)
         for num in my_list:
             print("{:d}".format(num))
