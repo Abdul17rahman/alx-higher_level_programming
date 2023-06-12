@@ -8,6 +8,8 @@ def print_matrix_integer(matrix=[[]]):
     Returns:
         Nothing
     """
+    if matrix == None:
+        pass
     for i in matrix:
         for n in i:
             if n != i[-1]:
