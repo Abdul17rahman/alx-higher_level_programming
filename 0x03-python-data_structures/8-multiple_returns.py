@@ -9,7 +9,7 @@ def multiple_returns(sentence):
         length: length of a string
         char: First character of a string
     """
-    if sentence is None:
+    if sentence == "":
         return (0, None)
     else:
         return (len(sentence), sentence[0])
