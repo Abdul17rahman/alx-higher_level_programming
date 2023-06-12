@@ -15,4 +15,5 @@ def print_matrix_integer(matrix=[[]]):
             if n != i[-1]:
                 print("{:d}".format(n), end=" ")
             else:
-                print("{:d}".format(n))
+                print("{:d}".format(n), end="")
+        print()
