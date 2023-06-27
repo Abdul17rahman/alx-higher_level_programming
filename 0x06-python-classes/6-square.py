@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""This is an empty class"""
+"""Square class"""
 
 
 class Square:
@@ -57,6 +57,7 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print()
+            return
         else:
             print("\n" * self.__position[1], end="")
             for i in range(self.__size):
