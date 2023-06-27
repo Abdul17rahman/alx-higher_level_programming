@@ -14,14 +14,14 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
-    #property decorator/getter for retrieving the size
+    # property decorator/getter for retrieving the size
 
     @property
     def size(self):
         """This retrives our private attribute"""
         return self.__size
 
-    #Setter, sets the size attribute
+    # Setter, sets the size attribute
 
     @size.setter
     def size(self, value):
