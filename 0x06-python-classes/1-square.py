@@ -6,6 +6,6 @@
 class Square:
     """This is an empty sqaure class """
 
-    def __init__(self, size):
+    def __init__(self, size=None):
         """Initializing the size attribute"""
-        self._size = size
+        self.__size = size
