@@ -100,4 +100,3 @@ class Rectangle:
     def square(cls, size=0):
         """Sets the dimensions of a Rect to size"""
         return cls(size, size)
-
