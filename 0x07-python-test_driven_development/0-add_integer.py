@@ -2,6 +2,7 @@
 
 """ Addition Module """
 
+
 def add_integer(a, b=98):
     """
     Function add_integer adds two numbers (integers or floats)

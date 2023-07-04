@@ -2,6 +2,7 @@
 
 """This a Matrix Division Module"""
 
+
 def matrix_divided(matrix, div):
     """
     Function matrix_divided - Divides div by each number in matrix
@@ -20,11 +21,12 @@ def matrix_divided(matrix, div):
         New Matrix with the division result rounded to
         2 decimal places
     """
+    msg = "matrix must be a matrix (list of lists) of integers/floats"
     if (not isinstance(matrix, list) or matrix == []
             or not all(isinstance(i, list) for i in matrix)):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError(msg)
     if not all(isinstance(el, (int, float)) for i in matrix for el in i):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError(msg)
     row_len = [len(i) for i in matrix]
     if not all(size == row_len[0] for size in row_len):
         raise TypeError("Each row of the matrix must have the same size")
