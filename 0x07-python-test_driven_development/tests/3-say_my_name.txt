@@ -1,0 +1,52 @@
+The ``Name`` module
+=======================
+
+Using ``Name``
+----------------------
+
+This is the addition text file in restructuredText format. first import the ``say_my_name`` from ``say_my_name`` module
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now use it:
+
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+
+	>>> say_my_name("Bob")
+	My name is Bob 
+
+	>>> say_my_name("")
+	My name is  
+
+	>>> say_my_name("", "")
+	My name is  
+
+	>>> say_my_name(" ")
+	My name is   
+
+	>>> say_my_name(" ", " ")
+	My name is    
+
+	>>> say_my_name("&@&", "()")
+	My name is &@& ()
+
+	>>> say_my_name(12, "White")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name('Bob', 98)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+	>>> say_my_name(12, 98)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(None)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
