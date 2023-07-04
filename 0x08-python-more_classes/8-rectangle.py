@@ -81,8 +81,8 @@ class Rectangle:
         print("Bye rectangle...")
 
     # public class method
-    @classmethod
-    def bigger_or_equal(self, rect_1, rect_2):
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
         """Compares the instances of a Rectangle according to the area"""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
