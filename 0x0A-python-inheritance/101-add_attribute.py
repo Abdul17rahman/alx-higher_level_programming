@@ -18,7 +18,7 @@ def add_attribute(ob, name, value):
         Returns:
             Nothing
     """
-    if type(ob) not in [int, tuple, dict, str, list, float]:
+    if hasattr(ob, "__dict__"):
         setattr(ob, name, value)
     else:
         raise TypeError("can't add attribute")
