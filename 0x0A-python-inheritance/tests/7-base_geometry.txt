@@ -1,120 +1,96 @@
-Geomtry Module
-======================
+se_geometry'' module
+==============================
 
-Using the ``geometry module``
+check for docstrings
+--------------------
+
+area method
+-----------
+    >>> method = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> len(method) > 1
+    True
+
+integer_validator method
 ------------------------
+    >>> method = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> len(method) > 1
+    True
 
-This is the geometry text file restructured format. first import the ``base_geometry`` from BaseGeometry
+import BaseGeometry class from ''7-base_geometry'' module
+    >>> big_geo = __import__('7-base_geometry').BaseGeometry
 
-Import the class required for testing from the module   
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry                                                     
+checking for area
+    >>> figure = big_geo()
+    >>> figure.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
 
-Start testing with some different inputs
+1 argument to area
+    >>> figure.area(2)
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
-#Create an instance
-    >>> bg = BaseGeometry()
-    >>> bg.integer_validator("my_int", 12)
-    >>> bg.integer_validator("width", 89)
+checking integer_validator with positive integer
+    >>> figure.integer_validator("Peter", 1)
 
-    >>> try:
-    ...     bg.integer_validator("name", "John")
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [TypeError] name must be an integer
+checking integer_validator with 0
+    >>> figure.integer_validator("Peter", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: Peter must be greater than 0
 
-    >>> try:
-    ...     bg.integer_validator("age", 0)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [ValueError] age must be greater than 0
+checking integer_validator with negative integer
+    >>> figure.integer_validator("Peter", -3)
+    Traceback (most recent call last):
+        ...
+    ValueError: Peter must be greater than 0
 
-    >>> try:
-    ...     bg.integer_validator("distance", -4)
-    ... except Exception as e:
-    ...     print("[{}] {}".format(e.__class__.__name__, e))
-    [ValueError] distance must be greater than 0
+checking integer_validator with string
+    >>> figure.integer_validator("Peter", "string")
+    Traceback (most recent call last):
+        ...
+    TypeError: Peter must be an integer
 
-#Test for calling area method
-    >>> try:
-    ...     bg.area()
-    ... except Exception as e:
-    ...     print(e)
-    area() is not implemented
+checking integer_validator with float
+    >>> figure.integer_validator("Peter", 2.3)
+    Traceback (most recent call last):
+        ...
+    TypeError: Peter must be an integer
 
-#Test for calling validator with empty arguments
-    >>> try:
-    ...     bg.integer_validator()
-    ... except Exception as e:
-    ...     print(e)
-    BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+1 argument to integer_validator
+    >>> figure.integer_validator(7)
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
-#Test for calling int validator with one argument
-    >>> try:
-    ...     bg.integer_validator("age")
-    ... except Exception as e:
-    ...     print(e)
-    BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+too many arguments to integer_validator
+    figure.integer_validator("Peter", 7, 8, 9)
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 5 were given
 
-#Test for calling int validator with two correct arg
-    >>> bg.integer_validator("age", 1)
+no arguments to integer_validator
+    >>> figure.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-#Test for calling int validator with 0 as second arg
-    >>> try:
-    ...     bg.integer_validator("age", 0)
-    ... except Exception as e:
-    ...     print(e)
-    age must be greater than 0
+checking integer_validator with a tuple
+    >>> figure.integer_validator("Peter", (7, 8))
+    Traceback (most recent call last):
+        ...
+    TypeError: Peter must be an integer
 
-#Test for calling int validator with negative int as second arg
-    >>> try:
-    ...     bg.integer_validator("age", -4)
-    ... except Exception as e:
-    ...     print(e)
-    age must be greater than 0
+checking integer_validator with a complex number
+    >>> figure.integer_validator("Peter", complex(3,5j))
+    Traceback (most recent call last):
+        ...
+    TypeError: Peter must be an integer
 
-
-#Test for calling int validator with string as second arg
-    >>> try:
-    ...     bg.integer_validator("age", "4")
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
-
-
-#Test for calling int validator with tuple as second arg
-    >>> try:
-    ...     bg.integer_validator("age", (2,))
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
-
-
-#Test for calling int validator with list as second arg
-    >>> try:
-    ...     bg.integer_validator("age", [3])
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
-
-
-#Test for calling int validator with bool as second arg
-    >>> try:
-    ...     bg.integer_validator("age", True)
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
-
-
-#Test for calling int validator with dictionary as second arg
-    >>> try:
-    ...     bg.integer_validator("age", {3, 4})
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
-
-#Test for calling int validator with None as second arg
-    >>> try:
-    ...     bg.integer_validator("age", None)
-    ... except Exception as e:
-    ...     print(e)
-    age must be an integer
+checking integer_validator with a list
+    >>> figure.integer_validator("Peter", [6,8])
+    Traceback (most recent call last):
+        ...
+    TypeError: Peter must be an integer
