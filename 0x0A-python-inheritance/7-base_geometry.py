@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-
-"""
-    BaseGeometry class
-"""
+"""Define a new class"""
 
 
 class BaseGeometry:
-    """class of base geometry"""
+    """init a new class
+    args:
+    name:
+    value
+    """
 
     def area(self):
-        """gets area of figure"""
+        """Raise error"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """validates value"""
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
