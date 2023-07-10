@@ -5,6 +5,6 @@
 """
 
 
-def lookup(data):
+def lookup(obj):
     """ Function that returns the methods and attr of an obj"""
-    return list(dir(data))
+    return list(dir(obj))
