@@ -24,3 +24,10 @@ Now use it:
 
 	>>> print(my_list)
 	[1, 4, 2, 3, 5]
+
+	>>> new_list = MyList()
+	>>> print(new_list)
+	[]
+
+	>>> new_list.print_sorted()
+	[]
