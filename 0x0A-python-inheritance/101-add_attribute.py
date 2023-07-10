@@ -18,6 +18,6 @@ def add_attribute(ob, name, value):
         Returns:
             Nothing
     """
-    if not hasattr(ob, "__dict__"):
+    if hasattr(ob, name):
         raise TypeError("can't add attribute")
     setattr(ob, name, value)
