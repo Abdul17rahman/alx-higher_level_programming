@@ -46,14 +46,14 @@ Start testing with some different inputs
     ...     bg.integer_validator()
     ... except Exception as e:
     ...     print(e)
-    integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 #Test for calling int validator with one argument
     >>> try:
     ...     bg.integer_validator("age")
     ... except Exception as e:
     ...     print(e)
-    integer_validator() missing 1 required positional argument: 'value'
+    BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
 #Test for calling int validator with two correct arg
     >>> bg.integer_validator("age", 1)
