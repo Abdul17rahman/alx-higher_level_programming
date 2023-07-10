@@ -20,3 +20,12 @@ class Rectangle(BaseGeometry):
         super().integer_validator("height", height)
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """Defining the area of the rect"""
+        return self.__width * self.__height
+
+    def __str__(self):
+        """Print the default Rect"""
+        clsname = type(self).__name__
+        return "[{}] {}/{}".format(clsname, self.__width, self.__height)
