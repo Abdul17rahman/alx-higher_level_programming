@@ -4,6 +4,7 @@
     Module to Sort a list
 """
 
+
 class MyList(list):
     """This class prints a sorted list """
 
@@ -13,4 +14,6 @@ class MyList(list):
 
     def print_sorted(self):
         """ Print sorted list"""
+        if not (isinstance(i, int) for i in self):
+            raise TypeError("List should contain integers only")
         print(sorted(self))
