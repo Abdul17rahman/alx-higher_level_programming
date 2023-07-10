@@ -31,3 +31,18 @@ Now use it:
 
 	>>> new_list.print_sorted()
 	[]
+
+	>>> neg_list = MyList()
+	>>> neg_list.append(-3)
+	>>> neg_list.append(-8)
+	>>> neg_list.append(-2)
+	>>> neg_list.append(-7)
+	>>> neg_list.append(-1)
+	>>> print(neg_list)
+	[-3, -8, -2, -7, -1]
+
+	>>> neg_list.print_sorted()
+	[-8, -7, -3, -2, -1]
+
+	>>> print(neg_list)
+	[-3, -8, -2, -7, -1]
