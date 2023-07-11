@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-    module for adding attribute to an object
-"""
+"""module for adding attribute to an object"""
 
 
 def add_attribute(ob, name, value):
