@@ -15,9 +15,9 @@ def add_attribute(ob, name, value):
         Raises:
             TypeError: If attributed cant be added
 
-        Returns:
+        Return:
             Nothing
     """
     if hasattr(ob, name):
         raise TypeError("can't add attribute")
-    setattr(ob, name, value)
+    object.__setattr__(ob, name, value)
