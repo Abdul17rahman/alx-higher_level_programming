@@ -18,6 +18,6 @@ def add_attribute(ob, name, value):
         Return:
             Nothing
     """
-    if hasattr(ob, name):
+    if hasattr(ob, "__slots__") and name not in ob.__slots__:
         raise TypeError("can't add attribute")
     object.__setattr__(ob, name, value)
