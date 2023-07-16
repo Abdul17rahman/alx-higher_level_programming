@@ -111,3 +111,6 @@ class TestRectangle(unittest.TestCase):
     def test_str(self):
         self.assertEqual(str(self.r2), "[Rectangle] (12) 0/0 - 10/2")
 
+    def test_update(self):
+        pass
+

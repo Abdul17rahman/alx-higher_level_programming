@@ -101,3 +101,33 @@ class Rectangle(Base):
         w = self.__width
         h = self.__height
         return "[{}] ({}) {}/{} - {}/{}".format(clsname, _id, _x, _y, w, h)
+
+    def update(self, *args, **kwargs):
+        """ update() - assigns arguments to @ attr"""
+        if not args:
+            if kwargs:
+                for key, value in kwargs.items():
+                    if key == 'id':
+                        self.id = value
+                    elif key == 'width':
+                        self.__width = value
+                    elif key == 'height':
+                        self.__height = value
+                    elif key == 'x':
+                        self.__x = value
+                    elif key == 'y':
+                        self.__y = value
+        else:
+            if len(args) == 1:
+                self.id = args[0]
+            elif len(args) == 2:
+                self.__width = args[1]
+            elif len(args) == 3:
+                self.__height = args[2]
+            elif len(args) == 4:
+                self.__x = args[3]
+            elif len(args) == 5:
+                self.__y = args[4]
+        return "[{}] {} {}/{} - {}/{}".format(type(self).__name__, self.id,
+                                              self.__width, self.__height,
+                                              self.__x, self.__y)
