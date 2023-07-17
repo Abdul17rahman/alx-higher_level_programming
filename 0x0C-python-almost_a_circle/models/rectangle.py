@@ -121,13 +121,18 @@ class Rectangle(Base):
             if len(args) == 1:
                 self.id = args[0]
             elif len(args) == 2:
-                self.__width = args[1]
+                self.id, self.__width = args
             elif len(args) == 3:
-                self.__height = args[2]
+                self.id, self.__width, self.__height = args
             elif len(args) == 4:
-                self.__x = args[3]
+                self.id, self.__width, self.__height, self.__x = args
             elif len(args) == 5:
-                self.__y = args[4]
+                self.id, self.__width, self.__height, self.__y, self.__y = args
         return "[{}] {} {}/{} - {}/{}".format(type(self).__name__, self.id,
                                               self.__width, self.__height,
                                               self.__x, self.__y)
+
+    def to_dictionary(self):
+        """ Returns a dict representation """
+        return {'x': self.__x, 'y': self.__y, 'id': self.id, 'height':
+                self.__height, 'width': self.__width}
