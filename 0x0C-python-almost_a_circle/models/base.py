@@ -66,7 +66,7 @@ class Base:
         filename = cls.__name__ + ".json"
         js_st = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
         with open(filename, 'w') as file:
-            file.write(json.dumps(json.loads(js_st), separators=(",", ":")))
+            file.write(js_st)
 
     @staticmethod
     def from_json_string(json_string):
