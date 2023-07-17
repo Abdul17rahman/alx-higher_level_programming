@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
-""" Square Class Module"""
+"""
+    Square Class Module
+"""
 from models.rectangla import Rectangle
 
 
