@@ -70,6 +70,13 @@ class Base:
         with open(filename, 'w') as file:
             file.write(js_st)
 
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns a created Instance """
+        inst = cls(1,3)
+        inst.update(**dictionary)
+        return inst
+
     @staticmethod
     def from_json_string(json_string):
         """ Returns the list of JSON str rep"""
