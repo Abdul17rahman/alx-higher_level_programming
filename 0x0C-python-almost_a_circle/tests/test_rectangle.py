@@ -1,7 +1,8 @@
+#!/usr/bin/python3
+""" Reactangle Test Module"""
 import unittest
 from models.rectangle import Rectangle
 
-""" Reactangle Test Module"""
 
 class TestRectangle(unittest.TestCase):
     """
