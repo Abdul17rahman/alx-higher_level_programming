@@ -61,3 +61,8 @@ class Square(Rectangle):
                 self.id, self.width, self.x, self.y = args
         return "[{}] {} {}/{} - {}".format(type(self).__name__, self.id,
                                            self.x, self.y, self.width)
+
+    def to_dictionary(self):
+        """ Updating it to square format"""
+        return {'id': self.id, 'x': self.x, 'size': self.width, 'y':
+                self.y}

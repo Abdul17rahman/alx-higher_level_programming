@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+
+import json
+
 """
     Base Class Module
 """
@@ -45,3 +48,28 @@ class Base:
                 raise ValueError("{} must be > 0".format(name))
         if value < 0:
             raise ValueError("{} must be >= 0".format(name))
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ Returns the JSON string of dicts """
+        dict_list = []
+        if not list_dictionaries or list_dictionaries is None:
+            return "[]"
+        for dictionary in list_dictionaries:
+            dict_list.append(dictionary)
+        return json.dumps(dict_list)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ Writes the JSON to a file """
+        filename = cls.__name__ + ".json"
+        json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+        with open(filename, 'w') as file:
+            file.write(json.dumps(json.loads(json_string), separators=(",", ":")))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Returns the list of JSON str rep"""
+        if not json_string or json_string is None:
+            return []
+        return list(json.loads(json_string))
