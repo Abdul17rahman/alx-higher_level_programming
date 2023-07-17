@@ -114,4 +114,3 @@ class TestRectangle(unittest.TestCase):
 
     def test_update(self):
         pass
-

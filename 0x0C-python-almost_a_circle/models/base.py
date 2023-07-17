@@ -28,7 +28,7 @@ class Base:
 
     # Function to help validate input
     def valid_input(self, name, value, val_typ="cor"):
-        """ 
+        """
             Validates the input values
 
             Args:
@@ -62,9 +62,9 @@ class Base:
     def save_to_file(cls, list_objs):
         """ Writes the JSON to a file """
         filename = cls.__name__ + ".json"
-        json_string = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+        js_st = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
         with open(filename, 'w') as file:
-            file.write(json.dumps(json.loads(json_string), separators=(",", ":")))
+            file.write(json.dumps(json.loads(js_st), separators=(",", ":")))
 
     @staticmethod
     def from_json_string(json_string):
