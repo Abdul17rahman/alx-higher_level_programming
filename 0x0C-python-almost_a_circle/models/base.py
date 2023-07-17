@@ -61,10 +61,11 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ Writes the JSON to a file """
-        if not list_objs or list_objs is None:
-            js_st = []
         filename = cls.__name__ + ".json"
-        js_st = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+        if list_objs:
+            js_st = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+        else:
+            js_st = []
         with open(filename, 'w') as file:
             file.write(js_st)
 
