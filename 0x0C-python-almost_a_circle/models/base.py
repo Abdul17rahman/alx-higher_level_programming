@@ -63,10 +63,11 @@ class Base:
         """ Writes the JSON to a file """
         filename = cls.__name__ + ".json"
         if list_objs:
-            js_st = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
+            js_st = cls.to_json_string([obj.to_dictionary()
+                                       for obj in list_objs])
         else:
             js_st = cls.to_json_string([])
-        with open(filename, 'w', encoding="utf-8") as file:
+        with open(filename, 'w') as file:
             file.write(js_st)
 
     @staticmethod
