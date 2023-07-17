@@ -3,7 +3,7 @@
 """
     Square Class Module
 """
-from models.rectangla import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
