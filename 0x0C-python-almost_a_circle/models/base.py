@@ -4,6 +4,7 @@
     Base Class Module
 """
 import json
+import csv
 
 
 class Base:
@@ -73,7 +74,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ Returns a created Instance """
-        inst = cls(1,3)
+        inst = cls(1, 3)
         inst.update(**dictionary)
         return inst
 
@@ -83,3 +84,42 @@ class Base:
         if not json_string or json_string is None:
             return []
         return list(json.loads(json_string))
+    
+    @classmethod
+    def load_from_file(cls):
+        """ Create new instances from file """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as f:
+                loaded_data = f.read()
+            list_objs = cls.from_json_string(loaded_data)
+            return [cls.create(**obj) for obj in list_objs]
+        except Exception:
+            return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Load from a file """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as f:
+                reader = csv.reader(f)
+            return [cls.create(**dictionary) for item in reader]
+        except Exception:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+           save_to_file_csv - write JSON string representation of list_objs
+                              to a file
+        """
+        filename = cls.__name__ + ".csv"
+        if list_objs:
+            csv_data = [obj.to_dictionary() for obj in list_objs]
+        else:
+            csv_data = []
+
+        with open(filename, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(csv_data)
