@@ -2,11 +2,10 @@
 
 const x = parseInt(process.argv[2]);
 
-function add () {
-  let fact = 1;
-  for (let i = 1; i <= x; i++) {
-    fact *= i;
+function factorial (a) {
+  if (a === 0 || a === 1) {
+    return 1;
   }
-  console.log(fact);
+  return a * factorial(a - 1);
 }
-add();
+console.log(factorial(x));
