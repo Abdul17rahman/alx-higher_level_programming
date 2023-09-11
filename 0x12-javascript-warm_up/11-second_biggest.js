@@ -3,6 +3,5 @@
 if (process.argv.length <= 3) {
   console.log(0);
 } else {
-  const value = process.argv.sort();
-  console.log(value[process.argv.length - 2]);
+  console.log(process.argv.sort((x, y) => y - x).slice(3)[0]);
 }
