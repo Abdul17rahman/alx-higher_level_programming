@@ -3,9 +3,10 @@
 const x = parseInt(process.argv[2]);
 
 function factorial (a) {
-  if (a === 0 || a === 1) {
-    return 1;
+  let fact = 1;
+  for (i = 1; i <= a; i++) {
+    fact *= i;
   }
-  return a * factorial(a - 1);
+  return fact;
 }
 console.log(factorial(x));
