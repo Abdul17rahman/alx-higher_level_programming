@@ -11,7 +11,7 @@ module.exports = class Square extends newSqr {
     for (let i = 0; i < this.height; i++) {
       myChar = '';
       for (let j = 0; j < this.width; j++) {
-        myChar += c
+        myChar += c;
       }
       console.log(myChar);
     }
