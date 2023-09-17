@@ -7,7 +7,6 @@ import sys
 def list_states(username, password, database):
     """ Functions that finds states """
     db = MySQLdb.connect(  # Connect to the database
-        host="localhost",
         user=username,
         passwd=password,
         db=database
