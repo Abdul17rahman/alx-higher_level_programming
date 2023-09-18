@@ -14,8 +14,8 @@ def select_states(username, password, database, name):
     cur.execute("""SELECT * FROM states
                 WHERE name = \'{}\'
                 ORDER BY states.id ASC;""".format(name))
-    item = cur.fetchone()
-    if item:
+    items = cur.fetchall()
+    for item in items:
         print(item)
     cur.close()
     database.close()
