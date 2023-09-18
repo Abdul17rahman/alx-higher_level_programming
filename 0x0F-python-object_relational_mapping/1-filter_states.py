@@ -11,10 +11,12 @@ def select_states(username, password, database):
 
     database = MySQLdb.connect(user=username, passwd=password, db=database)
     cur = database.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;")
+    cur.execute("""SELECT * FROM states
+                WHERE name LIKE 'N%' ORDER BY states.id ASC; """)
     items = cur.fetchall()
     for item in items:
-        print(item)
+        if item[1][0] == 'N':
+            print(item)
     cur.close()
     database.close()
 
