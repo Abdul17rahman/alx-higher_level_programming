@@ -1,36 +1,27 @@
 #!/usr/bin/python3
+"""
+  This is a script that lists all states from the database hbtn_0e_0_usa
+    using MySQLdb ORM
+"""
 
-import MySQLdb
-import sys
 
+def select_states(username, password, database, name):
+    """ Function that print the states """
+    import MySQLdb
 
-def list_states(username, password, database):
-    """ Functions that finds states """
-    db = MySQLdb.connect(  # Connect to the database
-        host="localhost",
-        user=username,
-        passwd=password,
-        db=database
-    )
-
-    # Create a cursor object to interact with the database
-    cursor = db.cursor()
-
-    # Execute the SQL query to select all states
-    cursor.execute("SELECT * FROM states")
-
-    # Fetch all the rows
-    rows = cursor.fetchall()
-
-    # Print the list of states
-    for row in rows:
-        print(row)
-
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
+    database = MySQLdb.connect(user=username, passwd=password, db=database)
+    cur = database.cursor()
+    cur.execute("SELECT * FROM states WHERE name = %s;", (name,))
+    item = cur.fetchone()
+    print(item)
+    cur.close()
+    database.close()
 
 
 if __name__ == "__main__":
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
-    list_states(username, password, database)
+    import sys
+    usr = sys.argv[1]
+    pwd = sys.argv[2]
+    db = sys.argv[3]
+    name = sys.argv[4]
+    select_states(usr, pwd, db, name)
