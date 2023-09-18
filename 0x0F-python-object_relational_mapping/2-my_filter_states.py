@@ -16,7 +16,8 @@ def select_states(username, password, database, name):
                 ORDER BY states.id ASC;""".format(name))
     items = cur.fetchall()
     for item in items:
-        print(item)
+        if item[1] == name:
+            print(item)
     cur.close()
     database.close()
 
