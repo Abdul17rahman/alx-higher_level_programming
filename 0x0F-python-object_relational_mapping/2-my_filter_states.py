@@ -11,7 +11,9 @@ def select_states(username, password, database, name):
 
     database = MySQLdb.connect(user=username, passwd=password, db=database)
     cur = database.cursor()
-    cur.execute("SELECT * FROM states WHERE name = %s;", (name,))
+    cur.execute("""SELECT * FROM states
+                WHERE name = \'{}\'
+                ORDER BY states.id ASC;""".format(name))
     item = cur.fetchone()
     if item:
         print(item)
