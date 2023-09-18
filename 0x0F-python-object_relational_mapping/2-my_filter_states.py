@@ -13,7 +13,8 @@ def select_states(username, password, database, name):
     cur = database.cursor()
     cur.execute("SELECT * FROM states WHERE name = %s;", (name,))
     item = cur.fetchone()
-    print(item)
+    if item:
+        print(item)
     cur.close()
     database.close()
 
