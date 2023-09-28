@@ -1,2 +1,3 @@
 #!/bin/bash
-curl -sI "$1" | grep -i Content-Length | awk '{print $2}'
+# Script to display the size of the body
+curl -s "$1" | wc -c
