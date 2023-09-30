@@ -15,10 +15,11 @@ if __name__ == "__main__":
     # check if response is valid json
     # if res.status_code == 200:
     # res_json = res.json()
-    if isinstance(res, dict):
-        if res:
-            print("[{}] {}".format(res['id'], res['name']))
-        else:
-            print('No result')
-    else:
+    try:
+        if isinstance(res, dict):
+            if res:
+                print("[{}] {}".format(res['id'], res['name']))
+            else:
+                print('No result')
+    except ValueError:
         print('Not a valid JSON')
