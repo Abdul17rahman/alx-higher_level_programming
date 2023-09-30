@@ -3,9 +3,16 @@
 """ This module fetches using urllib """
 
 
-import sys
+from sys import argv
 import requests
 
-with urllib.request.urlopen(sys.argv[1]) as res:
-    head = res.headers
-    print(head['X-Request-Id'])
+if __name__ == "__main__":
+    # Get the commands line args
+    user = argv[1]
+    token = argv[2]
+    url = f"https://api.github.com/users/{user}"
+    req = requests.get(url, auth=(user, token))
+    res_json = req.json()
+    if 'id' in res_json:
+        print(res_json['id'])
+    
