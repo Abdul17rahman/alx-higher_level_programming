@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" This module fetches using urllib """
+""" This module fetches using requests """
 
 
 import sys
@@ -13,4 +13,4 @@ if __name__ == "__main__":
         page = requests.get(url)
         print(page.text)
     except HTTPError as e:
-        print('Error code:', e.code)
+        print('Error code:', e)
