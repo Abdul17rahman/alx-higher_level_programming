@@ -14,5 +14,8 @@ if __name__ == "__main__":
     req = requests.get(url)
     res_json = req.json()
     for commit in res_json[:10]:
-        name = commit.get('commit').get('author').get('name')
-        print(f"{commit.get('sha')}: {name}")
+        try:
+            name = commit.get('commit').get('author').get('name')
+            print(f"{commit.get('sha')}: {name}")
+        except IndexError:
+            break
