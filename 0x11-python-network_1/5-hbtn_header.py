@@ -6,6 +6,8 @@
 import sys
 import requests
 
-with urllib.request.urlopen(sys.argv[1]) as res:
-    head = res.headers
-    print(head['X-Request-Id'])
+if __name__ == "__main__":
+    url = sys.argv[1]
+    # Retrieve the X-request-Id
+    head = requests.Request(url)
+    print(head.headers.get('X-Request-Id'))
