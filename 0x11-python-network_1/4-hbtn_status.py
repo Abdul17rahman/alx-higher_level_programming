@@ -9,5 +9,5 @@ if __name__ == "__main__":
     body = requests.get('https://alx-intranet.hbtn.io/status')
 
 print('Body response:')
-print('\t- type:', type(body))
-print('\t- content:', body)
+print('\t- type:', type(body.text))
+print('\t- content:', body.text)
