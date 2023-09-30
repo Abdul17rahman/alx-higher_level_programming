@@ -7,15 +7,11 @@ from sys import argv
 import requests
 
 if __name__ == "__main__":
-    # Get the commands line args
-    user = argv[1]
-    repo = argv[2]
-    url = f"https://api.github.com/repos/{user}/{repo}/commits"
-    req = requests.get(url)
-    res_json = req.json()[:10]
-    for commit in res_json:
+    url = f'https://api.github.com/repos/{argv[2]}/{argv[1]}/commits'
+    r = requests.get(url)
+    for commit in r.json()[:10]:
         try:
-            print("{}: {}".format(commit.get('sha'),
-                  commit.get('commit').get('author').get('name')))
-        except KeyError:
-            pass
+            print(f"{commit.get('sha')}: "
+                  f"{commit.get('commit').get('author').get('name')}")
+        except IndexError:
+            break
