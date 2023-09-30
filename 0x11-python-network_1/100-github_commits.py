@@ -16,6 +16,6 @@ if __name__ == "__main__":
     for commit in res_json[:10]:
         try:
             name = commit.get('commit').get('author').get('name')
-            print(f"{commit.get('sha')}: {name}")
+            print("{}: {}".format(commit.get('sha'), name))
         except IndexError:
             break
