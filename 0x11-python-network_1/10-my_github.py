@@ -5,14 +5,14 @@
 
 from sys import argv
 import requests
+from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
     # Get the commands line args
     user = argv[1]
     token = argv[2]
-    url = f"https://api.github.com/users/{user}"
-    req = requests.get(url, auth=(user, token))
+    git_auth = HTTPBasicAuth(user, token)
+    url = "https://api.github.com/user"
+    req = requests.get(url, auth=git_auth)
     res_json = req.json()
-    if 'id' in res_json:
-        print(res_json['id'])
-    
+    print(res_json.get('id'))
