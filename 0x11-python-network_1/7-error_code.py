@@ -5,6 +5,7 @@
 
 import sys
 import requests
+from requests.exceptions import HTTPError
 
 if __name__ == "__main__":
     # Get the commands line args
