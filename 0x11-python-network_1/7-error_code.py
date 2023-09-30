@@ -6,6 +6,11 @@
 import sys
 import requests
 
-with urllib.request.urlopen(sys.argv[1]) as res:
-    head = res.headers
-    print(head['X-Request-Id'])
+if __name__ == "__main__":
+    # Get the commands line args
+    url = sys.argv[1]
+    try:
+        page = requests.get(url)
+        print(page.text)
+    except HTTPError as e:
+        print('Error code:', e.code)
