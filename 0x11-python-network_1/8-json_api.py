@@ -1,11 +1,24 @@
 #!/usr/bin/python3
 
-""" This module fetches using urllib """
+""" This module fetches using requests """
 
 
 import sys
 import requests
 
-with urllib.request.urlopen(sys.argv[1]) as res:
-    head = res.headers
-    print(head['X-Request-Id'])
+if __name__ == "__main__":
+    # Get the commands line args
+    q = sys.argv[1] if len(sys.argv) > 1 else ""
+    payload = {'q': q}
+    # Retrieve the response
+    res = requests.post('http://0.0.0.0:5000/search_user', data=payload)
+    # check if response is valid json
+    if res.status_code == 200:
+        res_json = res.json()
+        if isinstance(res_json, dict):
+            if res_json:
+                print("[{}] {}".format(res_json['id'], res_json['name']))
+            else:
+                print('No result')
+        else:
+            print('Not a valid JSON')
