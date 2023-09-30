@@ -11,6 +11,7 @@ if __name__ == "__main__":
     url = sys.argv[1]
     try:
         page = requests.get(url)
+        page.raise_for_status()
         print(page.text)
     except HTTPError as e:
-        print('Error code:', e)
+        print('Error code:', e.respose.status_code)
