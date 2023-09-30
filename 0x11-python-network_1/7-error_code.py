@@ -15,4 +15,4 @@ if __name__ == "__main__":
         page.raise_for_status()
         print(page.text)
     except HTTPError as e:
-        print('Error code:', e.respose.status_code)
+        print('Error code:', e.response.status_code)
