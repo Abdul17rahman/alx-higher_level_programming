@@ -4,7 +4,8 @@
 
 
 import sys
-import urllib.request, urllib.parse
+import urllib.request
+import urllib.parse
 
 if __name__ == "__main__":
     # Get the commands line args
@@ -16,5 +17,5 @@ if __name__ == "__main__":
     req = urllib.request.Request(url, data)
     with urllib.request.urlopen(req) as res:
         # Retrieve the response
-        page = res.read()
+        page = res.read().decode('utf-8')
         print(page)
