@@ -5,6 +5,9 @@
 
 import requests
 
-with urllib.request.urlopen(sys.argv[1]) as res:
-    head = res.headers
-    print(head['X-Request-Id'])
+if __name__ == "__main__":
+    body = requests.get('https://alx-intranet.hbtn.io/status')
+
+print('Body response:')
+print('\t- type:', type(body))
+print('\t- content:', body)
