@@ -99,21 +99,18 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """ Load from a file """
+        """ Load from a csv file """
         filename = cls.__name__ + ".csv"
         try:
             with open(filename, "r", newline="") as f:
                 reader = csv.reader(f)
-            return [cls.create(**dictionary) for item in reader]
+            return [cls.create(**dictionary) for dictionary in reader]
         except Exception:
             return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """
-           save_to_file_csv - write JSON string representation of list_objs
-                              to a file
-        """
+        """ Writes to csv File"""
         filename = cls.__name__ + ".csv"
         if list_objs:
             csv_data = [obj.to_dictionary() for obj in list_objs]
