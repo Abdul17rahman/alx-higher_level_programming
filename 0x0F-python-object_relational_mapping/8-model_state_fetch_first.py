@@ -11,9 +11,10 @@ def list_states():
     """ Function that lists all the states"""
     session = Session()
     state = session.query(State).first()
-    if not state:
+    if state:
+        print(f"{state.id}: {state.name}")
+    else:
         print()
-    print(f"{state.id}: {state.name}")
     session.close()
 
 
