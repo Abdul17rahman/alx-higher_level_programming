@@ -14,7 +14,7 @@ def list_states():
     if state:
         print(f"{state.id}: {state.name}")
     else:
-        print("Nothing\n")
+        print("Nothing")
     session.close()
 
 
