@@ -11,7 +11,7 @@ from relationship_city import City
 def add_state_city():
     """ Function that adds both state and city"""
     session = Session()
-    states = session.query(State).all()
+    states = session.query(State).order_by(State.id).all()
     for state in states:
         print(f"{state.id}: {state.name}")
         for city in state.cities:
