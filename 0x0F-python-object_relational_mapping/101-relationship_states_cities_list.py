@@ -15,7 +15,7 @@ def add_state_city():
     for state in states:
         print(f"{state.id}: {state.name}")
         for city in state.cities:
-            print(f"    {city.id}: {city.name}")
+            print(f"\t{city.id}: {city.name}")
     session.close()
 
 
